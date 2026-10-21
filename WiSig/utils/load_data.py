@@ -22,9 +22,12 @@ RX_INDEXES_MANYRX = [
     "24-5", "24-6", "24-13", "24-16",
 ]
 
+RX_INDEXES_MANYSIG_RAW = ["1-1", "2-1", "7-7", "8-8"]
+
 RX_INDEXES = {
     "ManySig": RX_INDEXES_MANYSIG,
     "ManyRx": RX_INDEXES_MANYRX,
+    "ManySigRaw": RX_INDEXES_MANYSIG_RAW,
 }
 
 
