@@ -293,6 +293,8 @@ def main():
         tx_num, rx_num = 6, 12
     elif conf.dataset_name == "ManyRx":
         tx_num, rx_num = 10, 32
+    elif conf.dataset_name == "ManySigRaw":
+        tx_num, rx_num = 6, 4
     else:
         raise ValueError(f"Unsupported dataset_name: {conf.dataset_name}")
 
