@@ -28,6 +28,7 @@ RX_INDEXES = {
     "ManySig": RX_INDEXES_MANYSIG,
     "ManyRx": RX_INDEXES_MANYRX,
     "ManySigRaw": RX_INDEXES_MANYSIG_RAW,
+    "ManySigZF": RX_INDEXES_MANYSIG,  # ZF-equalized mirror, same rx set
 }
 
 
