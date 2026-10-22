@@ -109,10 +109,15 @@ def split_receivers(all_num=12, all_test_round=4, test_round=0):
 
 
 def prepare_dataset(dataset_name, rx_indexes, date_indexes, tx_num, is_train, seed):
+    # ManySigEq: 官方 MMSE 均衡数据（folder=ManySig, 子目录 equalized）
+    folder_dataset, is_eq = dataset_name, "non_equalized"
+    if dataset_name == "ManySigEq":
+        folder_dataset, is_eq = "ManySig", "equalized"
+
     x_all, y_all = [], []
     for rx_index in rx_indexes:
         for date_index in date_indexes:
-            x, y = load_single_dataset(dataset_name, rx_index, date_index, tx_num, "non_equalized")
+            x, y = load_single_dataset(folder_dataset, rx_index, date_index, tx_num, is_eq)
             x_all.append(x)
             y_all.append(y)
 
@@ -289,7 +294,7 @@ def main():
     os.environ["CUDA_VISIBLE_DEVICES"] = conf.gpu
     setup_seed(conf.seed)
 
-    if conf.dataset_name == "ManySig":
+    if conf.dataset_name in ("ManySig", "ManySigZF", "ManySigEq"):
         tx_num, rx_num = 6, 12
     elif conf.dataset_name == "ManyRx":
         tx_num, rx_num = 10, 32
